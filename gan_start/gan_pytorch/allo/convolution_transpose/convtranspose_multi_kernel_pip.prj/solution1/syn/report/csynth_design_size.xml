@@ -1,0 +1,59 @@
+<design_size title="Design Size Report">
+    <item name="Total Instructions per Compilation Phase">
+        <table>
+            <keys size="4">Phase, Step, Instructions, Description</keys>
+            <column name="Compile/Link">,  2315, After all functions are compiled and linked into a single design</column>
+            <column name="">, , </column>
+            <column name="Unroll/Inline">, , After user unroll and inline pragmas are applied</column>
+            <column name="">(1) unroll,  2341, user unroll pragmas are applied</column>
+            <column name="">(2) simplification,  2163, simplification of applied user unroll pragmas</column>
+            <column name="">(3) inline,  2133, user inline pragmas are applied</column>
+            <column name="">(4) simplification,  2101, simplification of applied user inline pragmas</column>
+            <column name="">, , </column>
+            <column name="Array/Struct">, , After user array partition and struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(1) array partition,  8053, user array partition pragmas are applied</column>
+            <column name="">(2) simplification,  7909, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
+            <column name="">(3) aggregate/disaggregate ,  7909, user struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(4) array reshape,  7893, apply array reshape pragmas</column>
+            <column name="">(5) access patterns,  7925, array access pattern optmizations</column>
+            <column name="">, , </column>
+            <column name="Performance">, , After transformations are applied to meet performance pragma targets</column>
+            <column name="">(1) loop simplification,  7917, loop and instruction simplification</column>
+            <column name="">(2) parallelization,  7909, loops are unrolled or pipelined to meet performance targets</column>
+            <column name="">(3) array partition, 70973, arrays are partitioned to meet performance targets</column>
+            <column name="">(4) simplification, 36925, simplification of design after performance transformations</column>
+            <column name="">, , </column>
+            <column name="HW Transforms">, , After hardware transfomations</column>
+            <column name="">(1) lowering, 36325, initial conversion to HW specific instructions</column>
+            <column name="">(2) optimizations, 36638, high level synthesis optimizations</column>
+        </table>
+    </item>
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="7" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Array/Struct" col5="Performance" col6="HW Transforms"/>
+            <rows>
+                <row id="0" col0="top" col1="convolution_transpose_launch_multi_kernel.cpp:241" col2="2315" col3="2101" col4="7925" col5="36925" col6="36638">
+                    <row id="5" col0="load_all_weights_and_biases" col1="convolution_transpose_launch_multi_kernel.cpp:153" col2="601" col3="" col4="" col5="" col6="">
+                        <row id="1" col0="load_weights_tile" col1="convolution_transpose_launch_multi_kernel.cpp:92" col2="456" col2_disp=" 456 (8 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="2" col0="load_bias_tile" col1="convolution_transpose_launch_multi_kernel.cpp:117" col2="128" col2_disp=" 128 (8 calls)" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="6" col0="load_input_tile" col1="convolution_transpose_launch_multi_kernel.cpp:26" col2="632" col2_disp=" 632 (8 calls)" col3="496" col3_disp=" 496 (8 calls)" col4="496" col4_disp=" 496 (8 calls)" col5="1736" col5_disp="1,736 (8 calls)" col6="1784" col6_disp="1,784 (8 calls)"/>
+                    <row id="4" col0="execute_kernels_in_parallel" col1="convolution_transpose_launch_multi_kernel.cpp:195" col2="553" col3="921" col4="5009" col5="4873" col6="4939">
+                        <row id="7" col0="kernel_convolution_layer_tile" col1="convolution_transpose_launch_multi_kernel.cpp:67" col2="528" col2_disp=" 528 (8 calls)" col3="896" col3_disp=" 896 (8 calls)" col4="5000" col4_disp="5,000 (8 calls)" col5="4864" col5_disp="4,864 (8 calls)" col6="4928" col6_disp="4,928 (8 calls)"/>
+                    </row>
+                    <row id="3" col0="store_output_tile" col1="convolution_transpose_launch_multi_kernel.cpp:128" col2="232" col2_disp=" 232 (8 calls)" col3="192" col3_disp=" 192 (8 calls)" col4="192" col4_disp=" 192 (8 calls)" col5="184" col5_disp="  184 (8 calls)" col6="272" col6_disp="  272 (8 calls)"/>
+                    <row id="1" col0="load_weights_tile" col1="convolution_transpose_launch_multi_kernel.cpp:92" col2="" col3="264" col3_disp=" 264 (8 calls)" col4="1168" col4_disp="1,168 (8 calls)" col5="16544" col5_disp="16,544 (8 calls)" col6="15984" col6_disp="15,984 (8 calls)"/>
+                    <row id="2" col0="load_bias_tile" col1="convolution_transpose_launch_multi_kernel.cpp:117" col2="" col3="80" col3_disp="  80 (8 calls)" col4="472" col4_disp=" 472 (8 calls)" col5="472" col5_disp="  472 (8 calls)" col6="528" col6_disp="  528 (8 calls)"/>
+                </row>
+            </rows>
+            <notes/>
+        </hiertable>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+

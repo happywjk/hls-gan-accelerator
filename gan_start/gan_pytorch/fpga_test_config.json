@@ -1,0 +1,47 @@
+{
+    "project_root": ".",
+    "tests": [
+        {
+            "name": "convtranspose",
+            "layer_dir": "/work/global/jw2777/gan_start/gan_pytorch/allo/convolution_transpose",
+            "test_script": "ipkernel.py",
+            "make_target": "sw_emu"
+        },
+        {
+            "name": "relu",
+            "layer_dir": "/work/global/jw2777/gan_start/gan_pytorch/allo/relu/relu.prj",
+            "test_script": "test_relu.py",
+            "make_target": "sw_emu"
+        },
+        {
+            "name": "convtranspose_untile",
+            "layer_dir": "/work/global/jw2777/gan_start/gan_pytorch/allo/untile_baseline/convtranpose_untile",
+            "test_script": "ipkernel.py",
+            "make_target": "sw_emu"
+        },
+        {
+            "name": "batchnorm",
+            "layer_dir": "/work/global/jw2777/gan_start/gan_pytorch/allo/batchnorm/batchnorm.prj",
+            "test_script": "python_test.py",
+            "make_target": "sw_emu"
+        },
+        {
+            "name": "gan_block",
+            "layer_dir": "/work/global/jw2777/gan_start/gan_pytorch/allo/gan_block",
+            "test_script": "ipkernel.py",
+            "make_target": "sw_emu"
+        },
+        {
+            "name": "gan_model",
+            "layer_dir": "/work/global/jw2777/gan_start/gan_pytorch/allo/gan_model_cpp",
+            "test_script": "ipkernel.py",
+            "make_target": "sw_emu"
+        },
+        {
+            "name": "gan_model_untile",
+            "layer_dir": "/work/global/jw2777/gan_start/gan_pytorch/allo/untile_baseline/gan_model_untile",
+            "test_script": "ipkernel.py",
+            "make_target": "sw_emu"
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+================================================================
+== Design Size Report
+================================================================
+
+* Total Instructions per Compilation Phase
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Phase         | Step                        | Instructions | Description                                                                            |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+| Compile/Link  |                             | 17,082       | After all functions are compiled and linked into a single design                       |
+|               |                             |              |                                                                                        |
+| Unroll/Inline |                             |              | After user unroll and inline pragmas are applied                                       |
+|               | (1) unroll                  |  3,481       | user unroll pragmas are applied                                                        |
+|               | (2) simplification          |  2,402       | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                  |  2,157       | user inline pragmas are applied                                                        |
+|               | (4) simplification          |  1,856       | simplification of applied user inline pragmas                                          |
+|               |                             |              |                                                                                        |
+| Array/Struct  |                             |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
+|               | (1) array partition         |  1,775       | user array partition pragmas are applied                                               |
+|               | (2) simplification          |  1,775       | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate  |  1,775       | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape           |  1,775       | apply array reshape pragmas                                                            |
+|               | (5) access patterns         |  1,847       | array access pattern optmizations                                                      |
+|               |                             |              |                                                                                        |
+| Performance   |                             |              | After transformations are applied to meet performance pragma targets                   |
+|               | (1) loop simplification     |  1,829       | loop and instruction simplification                                                    |
+|               | (2) parallelization         |  1,829       | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition         |  1,829       | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification          |  1,829       | simplification of design after performance transformations                             |
+|               |                             |              |                                                                                        |
+| HW Transforms |                             |              | After hardware transfomations                                                          |
+|               | (1) lowering                |  2,051       | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations           |  2,413       | high level synthesis optimizations                                                     |
++---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
+
+* Instructions per Function for each Compilation Phase
++-------------------------------------+-----------------------+--------------+---------------+--------------+-------------+---------------+
+| Function                            | Location              | Compile/Link | Unroll/Inline | Array/Struct | Performance | HW Transforms |
++-------------------------------------+-----------------------+--------------+---------------+--------------+-------------+---------------+
+| + top                               | gan_model.cpp:40      | 17,082       | 1,856         | 1,847        | 1,829       | 2,413         |
+|  + top_block0                       | gan_block_0.cpp:63    |   522        |  261          |  260         |  257        |  344          |
+|     load_weights_tile               | conv_transpose.cpp:51 |    58        |               |              |             |               |
+|     load_bias_tile                  | conv_transpose.cpp:78 |    16        |   12          |   15         |   15        |   21          |
+|     load_batchnorm_params           | batchnorm.cpp:41      |    34        |   24          |   30         |   30        |   42          |
+|     load_input_tile                 | utils.cpp:11          |    94        |               |              |             |               |
+|     kernel_convolution_layer_til... | conv_transpose.cpp:18 |    79        |               |              |             |               |
+|     kernel_batchnorm_layer_tile     | batchnorm.cpp:11      |    75        |               |              |             |               |
+|     kernel_relu_layer_tile          | relu.cpp:12           |    70        |               |              |             |               |
+|     store_output_tile               | utils.cpp:56          |    69        |               |              |             |               |
+|  + top_block1                       | gan_block_1.cpp:63    |   522        |  263          |  262         |  259        |  346          |
+|     load_weights_tile               | conv_transpose.cpp:51 |    58        |               |              |             |               |
+|     load_bias_tile                  | conv_transpose.cpp:78 |    16        |   12          |   15         |   15        |   21          |
+|     load_batchnorm_params           | batchnorm.cpp:41      |    34        |   24          |   30         |   30        |   42          |
+|     load_input_tile                 | utils.cpp:11          |    94        |               |              |             |               |
+|     kernel_convolution_layer_til... | conv_transpose.cpp:18 |    79        |               |              |             |               |
+|     kernel_batchnorm_layer_tile     | batchnorm.cpp:11      |    75        |               |              |             |               |
+|     kernel_relu_layer_tile          | relu.cpp:12           |    70        |               |              |             |               |
+|     store_output_tile               | utils.cpp:56          |    69        |               |              |             |               |
+|  + top_block2                       | gan_block_2.cpp:63    |   522        |  263          |  262         |  259        |  346          |
+|     load_weights_tile               | conv_transpose.cpp:51 |    58        |               |              |             |               |
+|     load_bias_tile                  | conv_transpose.cpp:78 |    16        |   12          |   15         |   15        |   21          |
+|     load_batchnorm_params           | batchnorm.cpp:41      |    34        |   24          |   30         |   30        |   42          |
+|     load_input_tile                 | utils.cpp:11          |    94        |               |              |             |               |
+|     kernel_convolution_layer_til... | conv_transpose.cpp:18 |    79        |               |              |             |               |
+|     kernel_batchnorm_layer_tile     | batchnorm.cpp:11      |    75        |               |              |             |               |
+|     kernel_relu_layer_tile          | relu.cpp:12           |    70        |               |              |             |               |
+|     store_output_tile               | utils.cpp:56          |    69        |               |              |             |               |
+|  + top_block3                       | gan_block_3.cpp:63    |   522        |  263          |  262         |  259        |  346          |
+|     load_weights_tile               | conv_transpose.cpp:51 |    58        |               |              |             |               |
+|     load_bias_tile                  | conv_transpose.cpp:78 |    16        |   12          |   15         |   15        |   21          |
+|     load_batchnorm_params           | batchnorm.cpp:41      |    34        |   24          |   30         |   30        |   42          |
+|     load_input_tile                 | utils.cpp:11          |    94        |               |              |             |               |
+|     kernel_convolution_layer_til... | conv_transpose.cpp:18 |    79        |               |              |             |               |
+|     kernel_batchnorm_layer_tile     | batchnorm.cpp:11      |    75        |               |              |             |               |
+|     kernel_relu_layer_tile          | relu.cpp:12           |    70        |               |              |             |               |
+|     store_output_tile               | utils.cpp:56          |    69        |               |              |             |               |
+|  + top_block4                       | gan_block_4.cpp:63    |   522        |  263          |  262         |  259        |  346          |
+|     load_weights_tile               | conv_transpose.cpp:51 |    58        |               |              |             |               |
+|     load_bias_tile                  | conv_transpose.cpp:78 |    16        |   12          |   15         |   15        |   21          |
+|     load_batchnorm_params           | batchnorm.cpp:41      |    34        |   24          |   30         |   30        |   42          |
+|     load_input_tile                 | utils.cpp:11          |    94        |               |              |             |               |
+|     kernel_convolution_layer_til... | conv_transpose.cpp:18 |    79        |               |              |             |               |
+|     kernel_batchnorm_layer_tile     | batchnorm.cpp:11      |    75        |               |              |             |               |
+|     kernel_relu_layer_tile          | relu.cpp:12           |    70        |               |              |             |               |
+|     store_output_tile               | utils.cpp:56          |    69        |               |              |             |               |
+|  + top_block5                       | gan_block_5.cpp:62    | 14,425       |  457          |  453         |  450        |  520          |
+|     load_weights_tile               | conv_transpose.cpp:51 |    58        |               |              |             |               |
+|     load_bias_tile                  | conv_transpose.cpp:78 |    16        |   12          |   15         |   15        |   21          |
+|     load_input_tile                 | utils.cpp:11          |    94        |               |              |             |               |
+|     kernel_convolution_layer_til... | conv_transpose.cpp:18 |    79        |               |              |             |               |
+|     kernel_tanh_layer_tile          | tanh.cpp:18           | 14,084       |               |              |             |               |
+|     store_output_tile               | utils.cpp:56          |    69        |               |              |             |               |
+|   + generic_tanh<float>             | hls_tanh.h:28         |              |  257          |  254         |  254        |  255          |
+|      exp_generic<double>            | hls_exp_.h:156        |              |  201          |  198         |  198        |  199          |
++-------------------------------------+-----------------------+--------------+---------------+--------------+-------------+---------------+
+
+* Design Size Message Settings
++---------------------------------------------+--------+------------------------------------------------------------------+
+| Message Setting                             | Value  | Description                                                      |
++---------------------------------------------+--------+------------------------------------------------------------------+
+| config_compile -design_size_maximum_warning | 100000 | Show a warning when total design instructions exceeds this value |
++---------------------------------------------+--------+------------------------------------------------------------------+
+
+

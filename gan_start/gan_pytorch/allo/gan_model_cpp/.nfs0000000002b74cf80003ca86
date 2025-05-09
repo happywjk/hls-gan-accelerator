@@ -1,0 +1,23 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f129e6718f4, pid=139707, tid=139887
+#
+# JRE version: OpenJDK Runtime Environment Temurin-11.0.16.1+1 (11.0.16.1+1) (build 11.0.16.1+1)
+# Java VM: OpenJDK 64-Bit Server VM Temurin-11.0.16.1+1 (11.0.16.1+1, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libxv_device.so+0xa018f4]  HARPartsParse::registerPart(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, HDARPart*)+0x114
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/lib/systemd/systemd-coredump %P %u %g %s %t %c %h" (or dumping to /work/global/jw2777/gan_start/gan_pytorch/allo/gan_model_cpp/core.139707)
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/adoptium/adoptium-support/issues
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Xms512m -Xmx4096m -XX:+HeapDumpOnOutOfMemoryError --add-modules=ALL-SYSTEM /opt/xilinx/Vitis_HLS/2023.2/lnx64/tools/eclipse/plugins/org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar -showlocation -vm /opt/xilinx/Vitis_HLS/2023.2/tps/lnx64/jre11.0.16_1/bin/java -clean -configuration /home/jw2777/.Xilinx/vitis_hls/2023.2/workspace1 -data /home/jw2777/.Xilinx/vitis_hls/2023.2/workspace1 -perspective com.autoesl.autopilot.ui.platform.perspective -application com.autoesl.autopilot.ui.platform.application -showsplash /opt/xilinx/Vitis_HLS/2023.2/common/icons/splash_dark.bmp
+
+Host: Intel(R) Xeon(R) Silver 4214 CPU @ 2.20GHz, 

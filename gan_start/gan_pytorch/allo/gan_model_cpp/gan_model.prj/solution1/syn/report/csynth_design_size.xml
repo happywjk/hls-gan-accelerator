@@ -1,0 +1,109 @@
+<design_size title="Design Size Report">
+    <item name="Total Instructions per Compilation Phase">
+        <table>
+            <keys size="4">Phase, Step, Instructions, Description</keys>
+            <column name="Compile/Link">, 17082, After all functions are compiled and linked into a single design</column>
+            <column name="">, , </column>
+            <column name="Unroll/Inline">, , After user unroll and inline pragmas are applied</column>
+            <column name="">(1) unroll,  3481, user unroll pragmas are applied</column>
+            <column name="">(2) simplification,  2402, simplification of applied user unroll pragmas</column>
+            <column name="">(3) inline,  2157, user inline pragmas are applied</column>
+            <column name="">(4) simplification,  1856, simplification of applied user inline pragmas</column>
+            <column name="">, , </column>
+            <column name="Array/Struct">, , After user array partition and struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(1) array partition,  1775, user array partition pragmas are applied</column>
+            <column name="">(2) simplification,  1775, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
+            <column name="">(3) aggregate/disaggregate ,  1775, user struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(4) array reshape,  1775, apply array reshape pragmas</column>
+            <column name="">(5) access patterns,  1847, array access pattern optmizations</column>
+            <column name="">, , </column>
+            <column name="Performance">, , After transformations are applied to meet performance pragma targets</column>
+            <column name="">(1) loop simplification,  1829, loop and instruction simplification</column>
+            <column name="">(2) parallelization,  1829, loops are unrolled or pipelined to meet performance targets</column>
+            <column name="">(3) array partition,  1829, arrays are partitioned to meet performance targets</column>
+            <column name="">(4) simplification,  1829, simplification of design after performance transformations</column>
+            <column name="">, , </column>
+            <column name="HW Transforms">, , After hardware transfomations</column>
+            <column name="">(1) lowering,  2051, initial conversion to HW specific instructions</column>
+            <column name="">(2) optimizations,  2413, high level synthesis optimizations</column>
+        </table>
+    </item>
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="7" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Array/Struct" col5="Performance" col6="HW Transforms"/>
+            <rows>
+                <row id="0" col0="top" col1="gan_model.cpp:40" col2="17082" col3="1856" col4="1847" col5="1829" col6="2413">
+                    <row id="24" col0="top_block0" col1="gan_block_0.cpp:63" col2="522" col3="261" col4="260" col5="257" col6="344">
+                        <row id="5" col0="load_weights_tile" col1="conv_transpose.cpp:51" col2="58" col3="" col4="" col5="" col6=""/>
+                        <row id="4" col0="load_bias_tile" col1="conv_transpose.cpp:78" col2="16" col3="12" col4="15" col5="15" col6="21"/>
+                        <row id="10" col0="load_batchnorm_params" col1="batchnorm.cpp:41" col2="34" col3="24" col4="30" col5="30" col6="42"/>
+                        <row id="29" col0="load_input_tile" col1="utils.cpp:11" col2="94" col3="" col4="" col5="" col6=""/>
+                        <row id="8" col0="kernel_convolution_layer_tile" col1="conv_transpose.cpp:18" col2="79" col3="" col4="" col5="" col6=""/>
+                        <row id="22" col0="kernel_batchnorm_layer_tile" col1="batchnorm.cpp:11" col2="75" col3="" col4="" col5="" col6=""/>
+                        <row id="25" col0="kernel_relu_layer_tile" col1="relu.cpp:12" col2="70" col3="" col4="" col5="" col6=""/>
+                        <row id="26" col0="store_output_tile" col1="utils.cpp:56" col2="69" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="18" col0="top_block1" col1="gan_block_1.cpp:63" col2="522" col3="263" col4="262" col5="259" col6="346">
+                        <row id="5" col0="load_weights_tile" col1="conv_transpose.cpp:51" col2="58" col3="" col4="" col5="" col6=""/>
+                        <row id="4" col0="load_bias_tile" col1="conv_transpose.cpp:78" col2="16" col3="12" col4="15" col5="15" col6="21"/>
+                        <row id="10" col0="load_batchnorm_params" col1="batchnorm.cpp:41" col2="34" col3="24" col4="30" col5="30" col6="42"/>
+                        <row id="29" col0="load_input_tile" col1="utils.cpp:11" col2="94" col3="" col4="" col5="" col6=""/>
+                        <row id="8" col0="kernel_convolution_layer_tile" col1="conv_transpose.cpp:18" col2="79" col3="" col4="" col5="" col6=""/>
+                        <row id="22" col0="kernel_batchnorm_layer_tile" col1="batchnorm.cpp:11" col2="75" col3="" col4="" col5="" col6=""/>
+                        <row id="25" col0="kernel_relu_layer_tile" col1="relu.cpp:12" col2="70" col3="" col4="" col5="" col6=""/>
+                        <row id="26" col0="store_output_tile" col1="utils.cpp:56" col2="69" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="17" col0="top_block2" col1="gan_block_2.cpp:63" col2="522" col3="263" col4="262" col5="259" col6="346">
+                        <row id="5" col0="load_weights_tile" col1="conv_transpose.cpp:51" col2="58" col3="" col4="" col5="" col6=""/>
+                        <row id="4" col0="load_bias_tile" col1="conv_transpose.cpp:78" col2="16" col3="12" col4="15" col5="15" col6="21"/>
+                        <row id="10" col0="load_batchnorm_params" col1="batchnorm.cpp:41" col2="34" col3="24" col4="30" col5="30" col6="42"/>
+                        <row id="29" col0="load_input_tile" col1="utils.cpp:11" col2="94" col3="" col4="" col5="" col6=""/>
+                        <row id="8" col0="kernel_convolution_layer_tile" col1="conv_transpose.cpp:18" col2="79" col3="" col4="" col5="" col6=""/>
+                        <row id="22" col0="kernel_batchnorm_layer_tile" col1="batchnorm.cpp:11" col2="75" col3="" col4="" col5="" col6=""/>
+                        <row id="25" col0="kernel_relu_layer_tile" col1="relu.cpp:12" col2="70" col3="" col4="" col5="" col6=""/>
+                        <row id="26" col0="store_output_tile" col1="utils.cpp:56" col2="69" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="15" col0="top_block3" col1="gan_block_3.cpp:63" col2="522" col3="263" col4="262" col5="259" col6="346">
+                        <row id="5" col0="load_weights_tile" col1="conv_transpose.cpp:51" col2="58" col3="" col4="" col5="" col6=""/>
+                        <row id="4" col0="load_bias_tile" col1="conv_transpose.cpp:78" col2="16" col3="12" col4="15" col5="15" col6="21"/>
+                        <row id="10" col0="load_batchnorm_params" col1="batchnorm.cpp:41" col2="34" col3="24" col4="30" col5="30" col6="42"/>
+                        <row id="29" col0="load_input_tile" col1="utils.cpp:11" col2="94" col3="" col4="" col5="" col6=""/>
+                        <row id="8" col0="kernel_convolution_layer_tile" col1="conv_transpose.cpp:18" col2="79" col3="" col4="" col5="" col6=""/>
+                        <row id="22" col0="kernel_batchnorm_layer_tile" col1="batchnorm.cpp:11" col2="75" col3="" col4="" col5="" col6=""/>
+                        <row id="25" col0="kernel_relu_layer_tile" col1="relu.cpp:12" col2="70" col3="" col4="" col5="" col6=""/>
+                        <row id="26" col0="store_output_tile" col1="utils.cpp:56" col2="69" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="9" col0="top_block4" col1="gan_block_4.cpp:63" col2="522" col3="263" col4="262" col5="259" col6="346">
+                        <row id="5" col0="load_weights_tile" col1="conv_transpose.cpp:51" col2="58" col3="" col4="" col5="" col6=""/>
+                        <row id="4" col0="load_bias_tile" col1="conv_transpose.cpp:78" col2="16" col3="12" col4="15" col5="15" col6="21"/>
+                        <row id="10" col0="load_batchnorm_params" col1="batchnorm.cpp:41" col2="34" col3="24" col4="30" col5="30" col6="42"/>
+                        <row id="29" col0="load_input_tile" col1="utils.cpp:11" col2="94" col3="" col4="" col5="" col6=""/>
+                        <row id="8" col0="kernel_convolution_layer_tile" col1="conv_transpose.cpp:18" col2="79" col3="" col4="" col5="" col6=""/>
+                        <row id="22" col0="kernel_batchnorm_layer_tile" col1="batchnorm.cpp:11" col2="75" col3="" col4="" col5="" col6=""/>
+                        <row id="25" col0="kernel_relu_layer_tile" col1="relu.cpp:12" col2="70" col3="" col4="" col5="" col6=""/>
+                        <row id="26" col0="store_output_tile" col1="utils.cpp:56" col2="69" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="7" col0="top_block5" col1="gan_block_5.cpp:62" col2="14425" col3="457" col4="453" col5="450" col6="520">
+                        <row id="5" col0="load_weights_tile" col1="conv_transpose.cpp:51" col2="58" col3="" col4="" col5="" col6=""/>
+                        <row id="4" col0="load_bias_tile" col1="conv_transpose.cpp:78" col2="16" col3="12" col4="15" col5="15" col6="21"/>
+                        <row id="29" col0="load_input_tile" col1="utils.cpp:11" col2="94" col3="" col4="" col5="" col6=""/>
+                        <row id="8" col0="kernel_convolution_layer_tile" col1="conv_transpose.cpp:18" col2="79" col3="" col4="" col5="" col6=""/>
+                        <row id="27" col0="kernel_tanh_layer_tile" col1="tanh.cpp:18" col2="14084" col3="" col4="" col5="" col6=""/>
+                        <row id="26" col0="store_output_tile" col1="utils.cpp:56" col2="69" col3="" col4="" col5="" col6=""/>
+                        <row id="11" col0="generic_tanh&lt;float&gt;" col1="hls_tanh.h:28" col2="" col3="257" col4="254" col5="254" col6="255">
+                            <row id="32" col0="exp_generic&lt;double&gt;" col1="hls_exp_.h:156" col2="" col3="201" col4="198" col5="198" col6="199"/>
+                        </row>
+                    </row>
+                </row>
+            </rows>
+            <notes/>
+        </hiertable>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+
