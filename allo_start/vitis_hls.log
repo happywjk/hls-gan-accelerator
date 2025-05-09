@@ -1,0 +1,14 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.1.2 (64-bit)
+  **** SW Build 3605665 on Fri Aug  5 22:52:02 MDT 2022
+  **** IP Build 3603185 on Sat Aug  6 04:07:44 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source /opt/xilinx/2022.1/Vitis_HLS/2022.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/opt/xilinx/2022.1/Vitis_HLS/2022.1/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'jw2777' on host 'en-ec-brg-zhang-xcel.coecis.cornell.edu' (Linux_x86_64 version 3.10.0-1160.76.1.el7.x86_64) on Sat Oct 05 16:03:44 EDT 2024
+INFO: [HLS 200-10] On os "CentOS Linux release 7.9.2009 (Core)"
+INFO: [HLS 200-10] In directory '/home/jw2777/allo_start'
+ERROR [AP-1] Could not read script 'run.tcl'.
+INFO: [HLS 200-112] Total CPU user time: 0.37 seconds. Total CPU system time: 0.11 seconds. Total elapsed time: 0.74 seconds; peak allocated memory: 0.008 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Sat Oct  5 16:03:44 2024...
